@@ -10,10 +10,17 @@ file. No build step, no framework, no dependencies.
 
 ```
 index.html        The whole page
-styles.css        All styling (light + dark, responsive)
+styles.css        All styling (light + dark, responsive; brand navy accent)
 app.js            Footer year + mobile menu toggle
-assets/favicon.svg
+assets/logo.jpeg  UniHup brand logo — used in the header, footer and as the favicon
 ```
+
+## Contact details
+
+Shown in the Contact section and the footer:
+
+- Email: `unihup13@gmail.com`
+- Phone: `+39 329 77322`
 
 ## Develop / preview
 
@@ -35,6 +42,10 @@ grep -rl 'app.unihup.example' . --include='*.html'
 
 Also review the copy in the **About the data** and **FAQ** sections so it matches the
 current dataset and any disclaimers you want to make.
+
+`assets/logo.jpeg` is ~220 KB at 1254×1254. For production, consider exporting a
+smaller header-sized copy (and a proper `.ico`/`.png` favicon) — the markup will pick
+them up if you keep the same filenames or update the `<link rel="icon">` tags.
 
 ## Deploy
 
