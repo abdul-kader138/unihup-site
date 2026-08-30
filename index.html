@@ -20,11 +20,13 @@
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="UniHup home">
-      <img src="assets/logo.jpeg" alt="UniHup — Study, Live, Explore" width="120" height="120" />
+      <img src="assets/logo.jpeg" alt="" width="120" height="120" />
+      <span>UniHup</span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Primary">
@@ -33,12 +35,18 @@
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn-sm" href="https://app.unihup.example">Open the app</a>
+      <a class="btn btn-sm" href="https://app.unihup.com/">Open the app</a>
     </nav>
 
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -48,24 +56,41 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Studying in Italy</p>
-        <h1>Find the right Italian degree&nbsp;program — without the guesswork.</h1>
+        <img class="hero-cutout" src="assets/hero-italy-cutout.webp" alt="" aria-hidden="true" width="900" height="1350" />
+        <p class="eyebrow"><span></span> Your route to studying in Italy</p>
+        <h1>Find your place at an <em>Italian university.</em></h1>
         <p class="lead">
           Set your subject and degree level, and browse matching universities with
           their admission rules, language of instruction and CENSIS ranking in one place.
           Every listing links back to official sources.
         </p>
         <div class="cta-row">
-          <a class="btn btn-lg" href="https://app.unihup.example">Open the app</a>
+          <a class="btn btn-lg" href="https://app.unihup.com/">Open the app</a>
           <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
         </div>
+        <div class="popular-paths" aria-label="Popular study areas">
+          <span>Popular:</span>
+          <a href="https://app.unihup.com/">Engineering</a>
+          <a href="https://app.unihup.com/">Business</a>
+          <a href="https://app.unihup.com/">Medicine</a>
+        </div>
         <p class="fine">Free to register · Bachelor's / Honours &amp; Master's · English- and Italian-taught programs</p>
+        <div class="hero-proof">
+          <div class="avatars"><span>MI</span><span>BO</span><span>TO</span></div>
+          <p><strong>Built for international students</strong><br />Clear facts. Official sources. No guesswork.</p>
+        </div>
       </div>
 
+      <div class="hero-card-stage">
       <div class="hero-card" aria-hidden="true">
+        <div class="mock-topbar">
+          <div><span class="status-dot"></span> Program finder</div>
+          <span>2 matches</span>
+        </div>
+        <div class="mock-search">⌕&nbsp;&nbsp; Computer Science</div>
         <div class="mock-filters">
-          <span class="chip chip-active">Computer Science</span>
-          <span class="chip">Master's</span>
+          <span class="chip chip-active">Master's</span>
+          <span class="chip">English</span>
           <span class="chip">Open access</span>
         </div>
         <div class="mock-result">
@@ -76,6 +101,7 @@
               <span class="badge badge-warn">CENSIS #1</span>
             </div>
             <div class="mock-prog">MSc Computer Science &amp; Engineering</div>
+            <div class="mock-meta"><span>2 years</span><span>120 ECTS</span></div>
             <div class="mock-tags">
               <span class="badge">Milan</span>
               <span class="badge badge-ok">Open access</span>
@@ -91,6 +117,7 @@
               <span class="badge badge-warn">CENSIS #3</span>
             </div>
             <div class="mock-prog">MSc Artificial Intelligence</div>
+            <div class="mock-meta"><span>2 years</span><span>120 ECTS</span></div>
             <div class="mock-tags">
               <span class="badge">Bologna</span>
               <span class="badge badge-ok">Open access</span>
@@ -98,6 +125,8 @@
             </div>
           </div>
         </div>
+        <div class="mock-footer"><span>Verified university data</span><strong>View all programs →</strong></div>
+      </div>
       </div>
     </div>
   </section>
@@ -105,17 +134,29 @@
   <!-- STATS -->
   <section class="stats">
     <div class="wrap stats-grid">
-      <div><span class="stat-n">Real</span><span class="stat-l">Italian universities &amp; programs</span></div>
-      <div><span class="stat-n">2</span><span class="stat-l">degree levels — Bachelor's &amp; Master's</span></div>
-      <div><span class="stat-n">3</span><span class="stat-l">national process guides</span></div>
-      <div><span class="stat-n">20</span><span class="stat-l">regions of right-to-study scholarships</span></div>
+      <p class="stats-intro">One clear place to plan your studies</p>
+      <div><span class="stat-n">Verified</span><span class="stat-l">university &amp; program links</span></div>
+      <div><span class="stat-n" data-count="2">2</span><span class="stat-l">degree levels</span></div>
+      <div><span class="stat-n" data-count="20">20</span><span class="stat-l">scholarship regions</span></div>
     </div>
   </section>
+
+  <aside class="source-strip" aria-label="Official sources referenced by UniHup">
+    <div class="wrap source-strip-inner">
+      <span class="source-label"><span></span> Guidance built from primary sources</span>
+      <div class="source-list">
+        <span>Universitaly</span>
+        <span>CISIA</span>
+        <span>CIMEA</span>
+        <span>Study in Italy</span>
+      </div>
+    </div>
+  </aside>
 
   <!-- FEATURES -->
   <section id="features" class="section">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-label="01 / Discover">
         <h2>Everything you need to shortlist a program</h2>
         <p>UniHup pulls the scattered details of Italian admissions into one searchable panel.</p>
       </header>
@@ -172,24 +213,46 @@
     </div>
   </section>
 
+  <!-- ITALY EXPERIENCE -->
+  <section class="campus-story" aria-labelledby="campus-title">
+    <div class="wrap">
+      <div class="campus-visual">
+        <img src="assets/italian-campus.webp" alt="Students walking through a sunlit Italian university courtyard" loading="lazy" decoding="async" width="1600" height="878" />
+        <div class="campus-copy">
+          <p class="campus-kicker">More than a degree</p>
+          <h2 id="campus-title">Study. Live. <em>Belong.</em></h2>
+          <p>Turn a country full of possibilities into a plan you can actually follow.</p>
+          <a href="#guides">Explore the application guides <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="campus-note" aria-hidden="true">
+          <span>From shortlist</span>
+          <strong>to arrival in Italy</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- GUIDES -->
   <section id="guides" class="section section-alt">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-label="02 / Prepare">
         <h2>Plain-language guides to the parts that trip people up</h2>
         <p>Italy's admission process is national, not per-university. UniHup explains the steps once, clearly, with links to the official portals.</p>
       </header>
 
       <div class="grid grid-3">
         <article class="guide">
+          <span class="guide-number">01</span>
           <h3>Admission Tests <span class="tag">TOLC / IMAT</span></h3>
           <p>Which standardized test applies to your subject area, how TOLC@UNI and TOLC@HOME differ, IMAT for English-taught Medicine, and the new <em>semestre filtro</em> for Italian-taught Medicine.</p>
         </article>
         <article class="guide">
+          <span class="guide-number">02</span>
           <h3>Document Recognition <span class="tag">DOV / CIMEA</span></h3>
           <p>Getting a foreign qualification recognised for admission — the Dichiarazione di Valore, CIMEA statements of comparability, and when each is asked for.</p>
         </article>
         <article class="guide">
+          <span class="guide-number">03</span>
           <h3>Visa &amp; Arrival <span class="tag">Type D</span></h3>
           <p>The immigration track, phase by phase: pre-enrolment on Universitaly, the Type D student visa, health insurance, the residence permit, and the codice fiscale.</p>
         </article>
@@ -200,7 +263,7 @@
           <h3>Regional scholarships for all 20 regions</h3>
           <p>Italy's right-to-study (DSU) benefits — ISEE income-tested scholarships, subsidised housing and meal plans — are run region by region. UniHup lists the responsible body and official site for each, so you know where to look for the current <em>bando</em>.</p>
         </div>
-        <a class="btn" href="https://app.unihup.example">Browse scholarships</a>
+        <a class="btn" href="https://app.unihup.com/">Browse scholarships</a>
       </div>
     </div>
   </section>
@@ -208,7 +271,7 @@
   <!-- HOW IT WORKS -->
   <section id="how" class="section">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-label="03 / Shortlist">
         <h2>How it works</h2>
         <p>Three steps from sign-up to a working shortlist.</p>
       </header>
@@ -233,9 +296,34 @@
     </div>
   </section>
 
+  <!-- STUDENT JOURNEY -->
+  <section class="section journey" aria-labelledby="journey-title">
+    <div class="wrap">
+      <header class="section-head journey-head" data-label="Your Italian chapter">
+        <h2 id="journey-title">From first idea to your first day.</h2>
+        <p>UniHup helps turn every stage of studying abroad into a clearer next step.</p>
+      </header>
+      <div class="journey-gallery">
+        <figure class="journey-card journey-card-city">
+          <img src="assets/student-city.webp" alt="University students walking beneath an Italian city portico" loading="lazy" decoding="async" width="900" height="1350" />
+          <figcaption><span>01</span><div><strong>Discover</strong><small>Find the city and course that feel right.</small></div></figcaption>
+        </figure>
+        <figure class="journey-card journey-card-apply">
+          <img src="assets/student-application.webp" alt="Student reviewing university application documents in a library" loading="lazy" decoding="async" width="900" height="1350" />
+          <figcaption><span>02</span><div><strong>Prepare</strong><small>Understand every document and deadline.</small></div></figcaption>
+        </figure>
+        <figure class="journey-card journey-card-arrive">
+          <img src="assets/student-arrival.webp" alt="Student arriving with luggage in an Italian university city" loading="lazy" decoding="async" width="900" height="1350" />
+          <figcaption><span>03</span><div><strong>Arrive</strong><small>Start your new chapter with confidence.</small></div></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- TRANSPARENCY -->
-  <section class="section section-alt">
+  <section class="section section-alt data-section">
     <div class="wrap prose">
+      <p class="section-kicker">Transparent by design</p>
       <h2>About the data</h2>
       <p>
         UniHup ships with a <strong>curated dataset</strong> of real Italian universities and degree
@@ -254,7 +342,7 @@
   <!-- FAQ -->
   <section id="faq" class="section">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-label="04 / Answers">
         <h2>Frequently asked</h2>
       </header>
 
@@ -286,7 +374,7 @@
   <!-- CONTACT -->
   <section id="contact" class="section section-alt">
     <div class="wrap">
-      <header class="section-head">
+      <header class="section-head" data-label="05 / Talk to us">
         <h2>Get in touch</h2>
         <p>Questions about a program, the guides, or the data? Reach the UniHup team directly.</p>
       </header>
@@ -316,7 +404,7 @@
     <div class="wrap cta-inner">
       <h2>Start your Italian shortlist today</h2>
       <p>Register, pick a subject, and see which universities match.</p>
-      <a class="btn btn-lg btn-invert" href="https://app.unihup.example">Open the app</a>
+      <a class="btn btn-lg btn-invert" href="https://app.unihup.com/">Open the app</a>
     </div>
   </section>
 
@@ -334,7 +422,7 @@
       <a href="#how">How it works</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
-      <a href="https://app.unihup.example">Open the app</a>
+      <a href="https://app.unihup.com/">Open the app</a>
       <a href="mailto:unihup13@gmail.com">unihup13@gmail.com</a>
       <a href="tel:+3932977322">+39 329 77322</a>
     </nav>
@@ -344,6 +432,15 @@
     <span>Data links to <span class="mono">studyinitaly.esteri.it</span> &amp; <span class="mono">universitaly.it</span></span>
   </div>
 </footer>
+
+<div class="mobile-action" aria-label="Quick action">
+  <div><strong>Ready to explore?</strong><span>Find your program</span></div>
+  <a class="btn btn-sm" href="https://app.unihup.com/">Open app <span aria-hidden="true">→</span></a>
+</div>
+
+<a class="back-to-top" id="backToTop" href="#top" aria-label="Back to top">
+  <span aria-hidden="true">↑</span>
+</a>
 
 <script src="app.js" defer></script>
 </body>

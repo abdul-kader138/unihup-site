@@ -33,14 +33,8 @@ python3 -m http.server 4173
 
 ## Configure before publishing
 
-Replace the placeholder app URL `https://app.unihup.example` everywhere it appears
-in `index.html` with the real address of the UniHup panel:
-
-```bash
-grep -rl 'app.unihup.example' . --include='*.html'
-```
-
-Also review the copy in the **About the data** and **FAQ** sections so it matches the
+The production app links point to `https://app.unihup.com/`. Review the copy in the
+**About the data** and **FAQ** sections so it matches the
 current dataset and any disclaimers you want to make.
 
 `assets/logo.jpeg` is ~220 KB at 1254×1254. For production, consider exporting a
