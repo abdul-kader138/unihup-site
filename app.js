@@ -114,6 +114,40 @@
     });
   }
 
+  // Let the visual finder preview respond like a small product demo.
+  if (heroCard) {
+    heroCard.querySelectorAll(".mock-tabs span").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        heroCard.querySelectorAll(".mock-tabs span").forEach(function (item) {
+          item.classList.toggle("active", item === tab);
+        });
+      });
+    });
+
+    heroCard.querySelectorAll(".mock-save").forEach(function (save) {
+      save.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isSaved = save.classList.toggle("saved");
+        save.textContent = isSaved ? "♥" : "♡";
+      });
+    });
+
+    heroCard.querySelectorAll(".mock-result").forEach(function (result) {
+      result.addEventListener("click", function () {
+        heroCard.querySelectorAll(".mock-result").forEach(function (item) {
+          item.classList.toggle("selected", item === result);
+        });
+      });
+    });
+
+    var mockSearch = heroCard.querySelector(".mock-search");
+    if (mockSearch) {
+      mockSearch.addEventListener("click", function () {
+        mockSearch.classList.toggle("active");
+      });
+    }
+  }
+
   // Count up the small proof points when they first enter the viewport.
   var counters = document.querySelectorAll("[data-count]");
   if (counters.length && "IntersectionObserver" in window && !reducedMotion) {
